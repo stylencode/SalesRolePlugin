@@ -21,14 +21,14 @@ class Sales_Role_Plugin {
  * Initializes the plugin.
  */
  public function __construct() {
- add_action( 'init', array( $this, 'add_client_role' ) );
- add_action( 'init', array( $this, 'revoke_client_capabilities' ), 10 );
+ add_action( 'init', array( $this, 'add_sales_role' ) );
+ add_action( 'init', array( $this, 'revoke_sales_capabilities' ), 10 );
  }
 
  /**
- * Adds a 'Client' user role.
+ * Adds a 'Sales' user role.
  */
- public function add_client_role() {
+ public function add_sales_role() {
  global $wp_roles;
 
  if ( ! isset( $wp_roles ) ) {
@@ -43,7 +43,7 @@ class Sales_Role_Plugin {
  /**
  * Remove User editing capabilities for the 'Sales' user role.
  */
- public function revoke_client_capabilities() {
+ public function revoke_sales_capabilities() {
  $caps_to_remove = array(
  'update_core',
  'activate_plugins',
